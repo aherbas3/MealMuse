@@ -1,0 +1,17 @@
+# Ignore virtual environments
+mealmuse-env/
+
+# Ignore Python cache and compiled files
+__pycache__/
+*.py[cod]
+
+# Ignore Django secrets
+*.sqlite3
+*.log
+
+# Ignore IDE/editor settings
+.vscode/
+.idea/
+
+# Ignore environment variables file
+.env
