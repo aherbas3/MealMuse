@@ -9,12 +9,14 @@ class Recipe(models.Model):
     image_url = models.URLField(blank=True)
     instructions = models.TextField(blank=True)
     source_url = models.URLField(blank=True)
+    servings = models.FloatField(null=True, blank=True)
+    cook_time = models.IntegerField(null=True, blank=True) # will need parsing from PT1H30M format to 90
 
     def __str__(self):
         return self.title
 
 class Ingredient(models.Model):
-    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name='ingredients')
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
     name = models.CharField(max_length=255)
     amount = models.FloatField(null=True, blank=True)
     unit = models.CharField(max_length=50, blank=True)      # e.g., grams, tbsp, cups
